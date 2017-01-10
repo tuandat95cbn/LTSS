@@ -1,0 +1,160 @@
+\documentclass{beamer}
+% Copyright 2015 by Do Phan Thuan
+
+% Loại mẫu slice
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Hannover}
+
+% Ký tự tiếng Việt
+\usepackage[utf8]{vietnam}
+% Chèn ảnh
+\usepackage{graphicx}
+% Chèn đường dẫn 
+\usepackage{url}
+
+% Vẽ đồ thị
+
+% Insert code
+\usepackage{listings}
+\lstset{language=C++,
+   %keywords={break,case,catch,continue,else,elseif,end,for,function,
+   %   global,if,otherwise,persistent,return,switch,try,while},
+   basicstyle=\ttfamily,
+   keywordstyle=\color{blue},
+   commentstyle=\color{red},
+   stringstyle=\color{dkgreen},
+   frame=lrtb,
+   %frame=5 pt,
+   numbers=left,
+   numberstyle=\tiny\color{gray},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false}
+% Tô mầu cho bảng
+\usepackage{colortbl}
+
+
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+  
+\definecolor{Xanh}{rgb}{0,0.5,1}
+\definecolor{Do}{rgb}{1,0.25,0}
+\definecolor{Vang}{rgb}{1,1,0}
+\definecolor{Datroi}{rgb}{0,0,1}
+% Vẽ hình
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+% Vẽ mạch điện
+\usepackage[siunitx,european resistors]{circuitikz}
+
+% multirow
+\usepackage{multirow}
+
+\usepackage{pbox}
+
+% Tô mầu cho bảng
+\usepackage{colortbl}
+\definecolor{Xanh}{rgb}{0,0.5,1}
+\definecolor{Do}{rgb}{1,0.25,0}
+\definecolor{Vang}{rgb}{1,1,0}
+\definecolor{Datroi}{rgb}{0,0,1}
+
+% Một vài ký hiệu thường dùng
+\def\R{{\mathbb R}}
+\def\N{{\mathbb N}}
+\def\X{{\mathcal X}}
+\def\Y{{\mathcal Y}}
+\def\F{{\mathcal F}}
+\def\P{{\mathcal P}}
+\def\E{{\mathbb E}}
+\def\I{{\mathbb I}}
+\def\sign{{\rm sign}}
+
+% Xác định khoảng dãn trong bảng
+%\renewcommand\arraystretch{1.6}
+
+% a few macros
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\ig}{\includegraphics}
+\newcommand{\subt}[1]{{\footnotesize \color{subtitle} {#1}}}
+
+% named colors
+\definecolor{offwhite}{RGB}{249,242,215}
+\definecolor{foreground}{RGB}{255,255,255}
+\definecolor{background}{RGB}{24,24,24}
+\definecolor{title}{RGB}{107,174,214}
+\definecolor{gray}{RGB}{155,155,155}
+\definecolor{subtitle}{RGB}{102,255,204}
+\definecolor{hilight}{RGB}{22,155,104}
+\definecolor{vhilight}{RGB}{255,111,207}
+\definecolor{lolight}{RGB}{155,155,155}
+%\definecolor{green}{RGB}{125,250,125}
+
+% Minted
+%\usepackage{minted}
+%\usemintedstyle{monokai}
+%\newminted{cpp}{fontsize=\footnotesize}
+
+% Graph styles
+\tikzstyle{vertex}=[circle,fill=black!50,minimum size=15pt,inner sep=0pt, font=\small]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{dedge} = [draw,thick,->]
+\tikzstyle{weight} = [font=\scriptsize,pos=0.5]
+\tikzstyle{selected edge} = [draw,line width=2pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+%\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+%\setbeamertemplate{footline}{}
+
+% Tác giả, Tiêu đề, vân vân
+\title[]{{\huge \bf Một vài thuật toán sắp xếp trên mô hình song song} \\}
+\author[]{
+Nguyễn Tuấn Đạt\\
+Đặng Quang Trung\\
+}
+
+\institute[]{
+%\inst{1}% 
+}
+
+\logo{\includegraphics[scale=0.05]{hust.jpg} \vspace{220pt}}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Nội dung}
+\tableofcontents
+\end{frame}
+\section{Giới thiệu MPI}
+\section{Các thuật toán sử dụng}
+\section{Kết quả}
+\subsection{Thực hiện}
+\subsection{Kết quả}
+% TODO: Book
+\begin{frame}{Tài liệu tham khảo}
+\section*{Tài liệu tham khảo}
+
+\end{frame}
+\end{document}
