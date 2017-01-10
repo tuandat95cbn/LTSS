@@ -148,7 +148,51 @@ Nguyễn Tuấn Đạt\\
 \tableofcontents
 \end{frame}
 \section{Giới thiệu MPI}
+\begin{frame}{Giới thiệu MPI}
+\bi
+\item MPI là một thủ viện chuẩn của trao đổi thông điệp giữa nhiều máy tính chạy một chương trình song song trên bộ nhớ phân tán.
+\item Nó cho phép tính toán song song trên các clusters và các mạng không đồng nhất.
+\item Được thiết kế cho phép (mở) phát triển các thư viện phần mền song song.
+\item Được thiết kế để cung cấp quyền truy cập vào phần cứng song song cho 
+\bi
+\item Người dùng cuối.
+\item Người viết thư viện.
+\item Người phát triển tool.
+\ei
+\ei
+\end{frame}
 \section{Các thuật toán sử dụng}
+\begin{frame}{Meger Sort}
+\bi
+\item \textbf{Ý tưởng:} Xây dựng một cây xử lý
+\bi
+\item Số lượng nút lá của cây bằng số lượng bộ xử lý.
+\item Chiều cao của cây $log(p)$ (p là số bộ xử lí).
+\ei
+\item Mỗi nút lá chứa danh sách các phần tử. Áp dụng giải thuật sắp xếp tuần tự cho mỗi nút lá.
+\item 
+\item Kết quả ở mỗi nút lá sẽ được cung cấp về các nút cha(quá trình trộn 2 danh sách để được 1 danh sách mới).Các nút cha lại gửi tiếp.
+\item Cuối cùng nút gốc sẽ là sư hòa trộn thành dãy đã được sắp xếp.
+\ei
+\end{frame}
+\begin{frame}{Xây dựng cây}
+\begin{figure}[H]
+\includegraphics[scale=0.6]{img1.png}
+\caption{Cây xử lý độ cao 3}
+\end{figure}
+\end{frame}
+\begin{frame}{Trộn kết quả các nút}
+\bi
+\item Mỗi nút trong cây xử lí 1 quá trình riêng
+\item Ý tưởng trộn mượn ý tưởng binary heap khi nó thực hiện trong 1 mảng với gốc là 0.
+\item Với mỗi phần tử trong mảng có chỉ số con k có con trái là 2*k + 1 và con phải là 2*k + 2 và phần tử cha là $\frac{k-1}{2}$.
+\ei
+\end{frame}\begin{frame}{Trộn kết quả các nút}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{img2.png}
+\caption{Cây xử lý độ cao 3}
+\end{figure}
+\end{frame}
 \section{Kết quả}
 \subsection{Thực hiện}
 \subsection{Kết quả}
