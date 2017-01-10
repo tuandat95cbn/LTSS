@@ -187,11 +187,30 @@ Nguyễn Tuấn Đạt\\
 \item Ý tưởng trộn mượn ý tưởng binary heap khi nó thực hiện trong 1 mảng với gốc là 0.
 \item Với mỗi phần tử trong mảng có chỉ số con k có con trái là 2*k + 1 và con phải là 2*k + 2 và phần tử cha là $\frac{k-1}{2}$.
 \ei
-\end{frame}\begin{frame}{Trộn kết quả các nút}
+\end{frame}
+\begin{frame}{Trộn kết quả các nút}
 \begin{figure}[H]
 \includegraphics[scale=0.4]{img2.png}
 \caption{Cây xử lý độ cao 3}
 \end{figure}
+\end{frame}
+\begin{frame}{Odd-Even}
+\textbf{Ý tưởng:} Sử dụng biến thể của odd-even để mở rộng cho nhiều bộ xử lí
+\bi
+\item Chia dữ cho các bộ xử lí (p).
+\item[1.] Mỗi giai đoạn:(1 $\longrightarrow$ p):
+\bi
+\item Sắp xếp dư liệu địa phương trên mỗi bô
+\item Tìm các đối tác của bộ xử lý dựa trên giai đoạn và rank của chúng.
+\item Nếu bộ xử lí có đối tác:
+\bi
+\item[- ] gửi dữ liệu đến đối tác của chúng.
+\item[- ] nhận dữ liệu từ đối tác của chúng.
+\item[- ] Nếu rank của chúng nhỏ, thì giữ lại các phần tử nhỏ nhất(dữ liệu của bộ xử lí + dư liệu của đối tác).
+\item[- ] Trái lại thì giữ lại các phần tử lớn nhất(dữ liệu của bộ xử lí + dữ liệu của đối tác).
+\ei
+\ei
+\ei
 \end{frame}
 \section{Kết quả}
 \subsection{Thực hiện}
