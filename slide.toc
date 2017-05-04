@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Gi\IeC {\'\ohorn }i thi\IeC {\d \ecircumflex }u MPI}{3}{0}{1}
+\beamer@sectionintoc {2}{C\IeC {\'a}c thu\IeC {\d \acircumflex }t to\IeC {\'a}n s\IeC {\h \uhorn } d\IeC {\d u}ng}{4}{0}{2}
+\beamer@sectionintoc {3}{K\IeC {\'\ecircumflex }t qu\IeC {\h a}}{13}{0}{3}
+\beamer@subsectionintoc {3}{1}{Th\IeC {\d \uhorn }c hi\IeC {\d \ecircumflex }n}{13}{0}{3}
+\beamer@subsectionintoc {3}{2}{K\IeC {\'\ecircumflex }t qu\IeC {\h a}}{14}{0}{3}

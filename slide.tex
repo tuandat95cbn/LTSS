@@ -162,7 +162,7 @@ Nguyễn Tuấn Đạt\\
 \ei
 \end{frame}
 \section{Các thuật toán sử dụng}
-\begin{frame}{Meger Sort}
+\begin{frame}{Merge Sort}
 \bi
 \item \textbf{Ý tưởng:} Xây dựng một cây xử lý
 \bi
@@ -170,7 +170,6 @@ Nguyễn Tuấn Đạt\\
 \item Chiều cao của cây $log(p)$ (p là số bộ xử lí).
 \ei
 \item Mỗi nút lá chứa danh sách các phần tử. Áp dụng giải thuật sắp xếp tuần tự cho mỗi nút lá.
-\item 
 \item Kết quả ở mỗi nút lá sẽ được cung cấp về các nút cha(quá trình trộn 2 danh sách để được 1 danh sách mới).Các nút cha lại gửi tiếp.
 \item Cuối cùng nút gốc sẽ là sư hòa trộn thành dãy đã được sắp xếp.
 \ei
@@ -187,6 +186,7 @@ Nguyễn Tuấn Đạt\\
 \item Ý tưởng trộn mượn ý tưởng binary heap khi nó thực hiện trong 1 mảng với gốc là 0.
 \item Với mỗi phần tử trong mảng có chỉ số con k có con trái là 2*k + 1 và con phải là 2*k + 2 và phần tử cha là $\frac{k-1}{2}$.
 \ei
+$$\bigcirc(n)+\bigcirc(n/p*\log p)+\bigcirc(n/p \log (n/p))$$
 \end{frame}
 \begin{frame}{Trộn kết quả các nút}
 \begin{figure}[H]
@@ -198,7 +198,7 @@ Nguyễn Tuấn Đạt\\
 \textbf{Ý tưởng:} Sử dụng biến thể của odd-even để mở rộng cho nhiều bộ xử lí
 \bi
 \item Chia dữ cho các bộ xử lí (p).
-\item[1.] Mỗi giai đoạn:(1 $\longrightarrow$ p):
+\item Mỗi giai đoạn:(1 $\longrightarrow$ p):
 \bi
 \item Sắp xếp dư liệu địa phương trên mỗi bô
 \item Tìm các đối tác của bộ xử lý dựa trên giai đoạn và rank của chúng.
@@ -211,13 +211,96 @@ Nguyễn Tuấn Đạt\\
 \ei
 \ei
 \ei
+
+\end{frame}
+\begin{frame}{QuickSort}
+Ý tưởng: Dựa trên nguyên lý chia để trị.\\
+	Xét hệ thống có p bộ xử lý.\\
+	Thuật toán hoạt động như sau:
+	Tại mỗi bước thuật toán cố gắng chia dữ liệu thành 2 group dựa vào một key chọn sẵn.
+	\begin{enumerate}
+		\item Bước 1( i lần): Group j sẽ được chia làm 2 phần dựa key (key được họn ngẫu nhiên từ tiến trình chủ trong group). $i \in [1..log(p)]$
+		\item Bước 2: Sử dụng thuật toán sắp xếp tối ưu để sắp xếp tại mỗi tiến trình.
+		\item Bước 3: Gửi mảng đã sắp xếp về tiến trình root.
+\end{enumerate}
+$$\bigcirc(n)+\bigcirc(n/p*\log p)+\bigcirc(n/p \log (n/p))$$
+\end{frame}
+\begin{frame}{Mô tả}
+\begin{figure}[H]
+\includegraphics[scale=0.3]{quicksort.jpg}
+\caption{Hoạt động của thuật toán quicksort}
+\end{figure}
+\end{frame}
+\begin{frame}{SampleSort}
+Ý tưởng: Dựa trên ý tưởng của thuật toán bucketSort thuật toán sampleSort sẽ chọn ra một tập mẫu để quy đinh các bucket cho bucketSort.\\
+Hoạt động:
+\begin{itemize}
+\item Bước 1: Sắp xếp mảng cục bộ tại mỗi tiến trình bằng thuật  toán tối ưu.
+\item Bước 2: Tại mỗi tiến trình chọn ra p-1 số cách đều trong dữ liệu đã sắp xếp và gửi về tiến trình root.
+\item Bước 3: Tiến trình root tổng hợp và chọn ra p-1 số mẫu để quy định khoảng cho các bucket và gửi dữ liệu này đến mỗi tiền trình.
+\item Bước 4: Mỗi tiến trình chia dữ liệu vào các bucket và gửi dữ liệu ấy đến tiến trình ứng với bucket đó. 
+\item Bước 5: Mỗi tiến trình sắp xếp dữ liệu tại bucket của mình.
+\item Bước 6: Mỗi tiến trình gửi dữ liệu đã sắp xếp về tiến trình root. 
+\end{itemize}
+{\color{hilight} Độ phức tạp}
+ $$\bigcirc(n/p \log(n/p) ) +\bigcirc(p^2 log p) + \bigcirc(p \log (n/p)) + \bigcirc(n/p)+ \bigcirc(p \log p)  $$
+\end{frame}
+\begin{frame}{Mô tả}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{SS.png}
+\caption{Hoạt động của thuật toán sample sort}
+\end{figure}
 \end{frame}
 \section{Kết quả}
 \subsection{Thực hiện}
+\begin{frame}{Thực hiện}
+\begin{itemize}
+\item Thực hiện trên 2 máy bộ xử lý core i5.
+\item Dữ liệu sử dụng 5 bộ với n=1000,10000,100000,1000000,1000000.
+\item Thực hiện đo 10 lần với mỗi trường hợp sau đó tính trung bình.
+\end{itemize}
+
+\end{frame}
+
+
 \subsection{Kết quả}
+\begin{frame}{Biểu đồ  với số lượng bộ xử lý }
+\begin{figure}[H]
+\includegraphics[scale=0.4]{ms.png}
+\includegraphics[scale=0.4]{ov.png}
+\caption{Biểu đồ trên số lượng bộ xử lý}
+\end{figure}
+
+
+\end{frame}
+\begin{frame}{Biểu đồ  với số lượng bộ xử lý}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{qs.png}
+\caption{Biểu đồ trên số lượng bộ xử lý}
+\end{figure}
+\end{frame}
+\begin{frame}{Biểu đồ speedup}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{sp.png}
+\caption{Biểu đồ speedup}
+\end{figure}
+
+\end{frame}
+\begin{frame}{Biểu đồ thể hiện thời gian truyền}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{tpame.png}
+\includegraphics[scale=0.4]{tpaov.png}
+\caption{Biểu đồ thời gian truyền}
+\end{figure}
+
+
+\end{frame}
 % TODO: Book
 \begin{frame}{Tài liệu tham khảo}
 \section*{Tài liệu tham khảo}
+-http://parallelcomp.uw.hu/ch09lev1sec4.html\\
+-http://parallelcomp.uw.hu/ch09lev1sec5.html\\
+-Slide bài giảng lập trình song song thầy Nguyễn Tuấn Dũng
 
 \end{frame}
 \end{document}
